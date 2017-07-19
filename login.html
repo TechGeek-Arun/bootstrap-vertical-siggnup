@@ -1,0 +1,285 @@
+<html>
+<head>
+  <title>Login Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <style>
+  .vertical-divider {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  height: 50%;
+  line-height: 0;
+  text-align:center;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+}
+
+.vertical-divider:before, 
+.vertical-divider:after {
+  position: absolute;
+  left: 50%;
+  content: '';
+  z-index: 9;
+  border-left: 1px solid rgba(34,36,38,.15);
+  border-right: 1px solid rgba(255,255,255,.1);
+  width: 0;
+  height: calc(100% - 1rem);
+}
+
+.row-divided > .vertical-divider {
+  height: calc(50% - 1rem);    
+}
+
+.vertical-divider:before {
+  top: -100%;
+}
+
+.vertical-divider:after {
+  top: auto;
+  bottom: 0;
+}
+
+.row-divided {
+  position:relative;
+}
+
+.row-divided > [class^="col-"],
+.row-divided > [class*=" col-"] {
+  padding-left: 30px;  /* gutter width (give a little extra room) 2x default */
+  padding-right: 30px; /* gutter width (give a little extra room) 2x default */
+}
+
+
+
+
+/* just to set different column heights - not needed to function */          
+.column-one {
+  height: 400px; 
+  background-color: #EBFFF9;
+}
+.column-two {
+  height: 400px;
+  background-color: #F7F3FF;
+}
+
+.main{
+border: 10px solid black;
+margin: 100px;
+}
+
+.btn-facebook {
+	  background: #3B5998;
+	  border-radius: 0;
+	  color: #fff;
+	  border-width: 1px;
+	  border-style: solid;
+	  border-color: #263961; 
+	}
+	.btn-facebook:link, .btn-facebook:visited {
+	  color: #fff;
+	}
+	.btn-facebook:active, .btn-facebook:hover {
+	  background: #263961;
+	  color: #fff;
+	}
+  </style>
+</head>
+<body>
+<div class="container-fluid main">
+  <div class="row">
+        <div class="col-xs-12">
+          <p> <h1>Login Page</h1><a href="" id="link">Register a new account</a><br></p>
+        </div>
+    </div>
+    <!-- row requires "row-divided" class -->
+    <div class="row row-divided">
+        <div class="col-xs-6 column-one">
+             <div class="col-xs-10" >
+			 <div id="signin">
+  <h4 style="border-bottom: 1px solid #c5c5c5;">
+    <i class="glyphicon glyphicon-user">
+    </i>
+    Login
+  </h4>
+  
+  <div style="padding: 20px;" id="form-login">
+  <form role="form" id="login-form" method="post">
+      <fieldset>
+        <div class="form-group input-group">
+          <span class="input-group-addon">
+             <i class="glyphicon glyphicon-envelope">
+            </i>
+          </span>
+          <input class="form-control" placeholder="Email" name="email" type="email" required="" autofocus="">
+        </div>
+        <div class="form-group input-group">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-lock">
+            </i>
+          </span>
+          <input class="form-control" placeholder="Password" name="password" type="password" value="" required="">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block">
+            Login
+          </button>
+          <p class="help-block">
+            <a class="pull-right text-muted" href="#" id="login"><small>Forgot your password?</small></a>
+          </p>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  
+  <div style="display: none;" id="form-login">
+    <h4>
+      Forgot your password?
+    </h4>
+    <form role="form" id="login-recordar" method="post">
+      <fieldset>
+        <span class="help-block">
+          Email address you use to log in to your account
+          <br>
+          We'll send you an email with instructions to choose a new password.
+        </span>
+        <div class="form-group input-group">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-envelope">
+            </i>
+          </span>
+          <input class="form-control" placeholder="Email" name="email" type="email" required="">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="btn-login">
+          Continue
+        </button>
+        <p class="help-block">
+          <a class="text-muted" href="#" id="return"><small>Return to login??</small></a>
+        </p>
+      </fieldset>
+    </form>
+  </div>
+  
+  </div>
+  
+  <div id="signup">
+	<h4 style="border-bottom: 1px solid #c5c5c5;">
+    <i class="glyphicon glyphicon-user">
+    </i>
+    Register
+  </h4>
+  
+  <div style="padding: 20px;" id="form-register">
+  <form role="form" id="register-form" method="post">
+      <fieldset>
+	    <div class="form-group input-group">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-user">
+            </i>
+          </span>
+          <input class="form-control" placeholder="First Name" name="firstname" type="text" required="" autofocus="">
+        </div>
+		<div class="form-group input-group">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-user">
+            </i>
+          </span>
+          <input class="form-control" placeholder="Last Name" name="lastname" type="text" required="" >
+        </div>
+        <div class="form-group input-group">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-envelope">
+            </i>
+          </span>
+          <input class="form-control" placeholder="Email" name="email" type="email" required="" >
+        </div>
+        <div class="form-group input-group">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-lock">
+            </i>
+          </span>
+          <input class="form-control" placeholder="Password" name="password" type="password" value="" required="">
+        </div>
+        <div class="form-group" >
+          <button type="submit" class="btn btn-primary btn-block" >
+            Register
+          </button>
+		  <p class="help-block">
+          <a class="text-muted" href="#" id="returnLogin"><small>Return to login??</small></a>
+        </p>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  
+  
+	</div>
+  
+  </div>
+  
+  
+	
+</div>
+			
+			
+	
+      
+      	<div class="vertical-divider">or</div>
+    	<div class="col-xs-6 column-two">
+             <div class="center-block" >
+			
+			<h2>Have a facebook account??</h2>
+            
+
+    <button type="button" onclick=" window.open('https://www.facebook.com/login/','_blank')" class="btn btn-lg col-sm-8 btn-facebook">
+	<i class="fa fa-facebook fa-fw left"></i> 
+	Log in with Facebook
+	</button>
+</div>
+    	</div>
+		
+    </div>
+  
+  </div>
+  
+  
+  <!--
+  <div class="row">
+    <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
+    <div class="col-sm-8" style="background-color:lavenderblush;">.col-sm-8</div>
+  </div>
+  -->
+<script>
+$(document).ready(function() {
+  $('#signin').show();
+  $('#signup').hide();
+  $('#link').click(function(e) {
+    e.preventDefault();
+	$('#signin').hide();
+	$('#signup').show();
+  });
+  $('#login').click(function(e) {
+    e.preventDefault();
+    $('div#form-login').toggle('500');
+  });
+  $('#return').click(function(e) {
+    e.preventDefault();
+    $('div#form-login').toggle('500');
+  });
+   $('#returnLogin').click(function(e) {
+    e.preventDefault();
+    $('#signin').show();
+  $('#signup').hide();
+  });
+});
+</script>
+</html>
